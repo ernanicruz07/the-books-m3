@@ -6,6 +6,8 @@ import { Filters } from "./Filters";
 export const BooksSection = () => {
    const [search, setSearch] = useState("");
    const [category, setCategory] = useState("");
+   const [min, setMin] = useState("");
+   const [max, setMax] = useState("");
 
    const booksResults = books.filter((book) => {
       const searchFilter =
@@ -13,14 +15,20 @@ export const BooksSection = () => {
          book.name.toLowerCase().includes(search.toLowerCase()) ||
          book.category.toLowerCase().includes(search.toLowerCase());
 
-      const categoryFilter = category === "" ? true : book.category === category;   
+      const categoryFilter = category === "" ? true : book.category === category; 
+      
+      const minPriceFilter = min === "" ? true : book.price > Number(min);
 
-      return searchFilter && categoryFilter
+      const maxPriceFilter = max === "" ? true : book.price <= Number(max);
+
+      return searchFilter && categoryFilter && minPriceFilter && maxPriceFilter
    });
 
    const cleanFilters = () => {
       setSearch("");
       setCategory("");
+      setMin("");
+      setMax("");
    };
 
    return (
@@ -29,6 +37,10 @@ export const BooksSection = () => {
             cleanFilters={cleanFilters}
             setSearch={setSearch}
             setCategory={setCategory}
+            min={min}
+            setMin={setMin}
+            max={max}
+            setMax={setMax}
          />
          <BooksList search={search} bookList={booksResults} />
       </section>
