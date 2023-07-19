@@ -11,17 +11,18 @@ export const BooksSection = () => {
 
    const booksResults = books.filter((book) => {
       const searchFilter =
-         search === "" ? true : 
-         book.name.toLowerCase().includes(search.toLowerCase()) ||
-         book.category.toLowerCase().includes(search.toLowerCase());
+         search === ""
+            ? true
+            : book.name.toLowerCase().includes(search.toLowerCase()) ||
+              book.category.toLowerCase().includes(search.toLowerCase());
 
-      const categoryFilter = category === "" ? true : book.category === category; 
-      
+      const categoryFilter = category === "" ? true : book.category === category;
+
       const minPriceFilter = min === "" ? true : book.price > Number(min);
 
       const maxPriceFilter = max === "" ? true : book.price <= Number(max);
 
-      return searchFilter && categoryFilter && minPriceFilter && maxPriceFilter
+      return searchFilter && categoryFilter && minPriceFilter && maxPriceFilter;
    });
 
    const cleanFilters = () => {
@@ -33,16 +34,18 @@ export const BooksSection = () => {
 
    return (
       <section>
-         <Filters
-            cleanFilters={cleanFilters}
-            setSearch={setSearch}
-            setCategory={setCategory}
-            min={min}
-            setMin={setMin}
-            max={max}
-            setMax={setMax}
-         />
-         <BooksList search={search} bookList={booksResults} />
+         <div className="container">
+            <Filters
+               cleanFilters={cleanFilters}
+               setSearch={setSearch}
+               setCategory={setCategory}
+               min={min}
+               setMin={setMin}
+               max={max}
+               setMax={setMax}
+            />
+            <BooksList search={search} bookList={booksResults} />
+         </div>
       </section>
    );
 };

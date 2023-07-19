@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MdSearch } from "react-icons/md";
 
 export const SearchForm = ({setSearch}) => {
     const [value, setValue] = useState("");
@@ -11,8 +12,10 @@ export const SearchForm = ({setSearch}) => {
 
     return(
         <form onSubmit={submit}>
-            <input type="text" value={value} onChange={(e) => setValue(e.target.value)} required />
-            <button type="submit">Buscar</button>
+            <input className="input-medium" placeholder="Pesquisar..." type="text" value={value} onChange={(e) => setValue(e.target.value)} required />
+            <button className="btn" type="submit">
+                <MdSearch size={21} />
+            </button>
         </form>
     )
 }

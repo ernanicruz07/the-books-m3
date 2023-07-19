@@ -3,8 +3,8 @@ import { BookCard } from "./BookCard";
 export const BooksList = ({ search, bookList }) => {
    return (
       <div>
-         <span>Livros listados: {bookList.length}</span>
-         {search ? <p>Resultados de busca para: {search}</p> : null}
+         <span className="paragraph bold">Livros listados: {bookList.length}</span>
+         {search ? <p className="paragraph">Resultados de busca para: <strong>{search}</strong></p> : null}
 
          {bookList.length > 0 ? (
             <ul>

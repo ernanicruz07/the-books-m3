@@ -1,10 +1,13 @@
 export const PriceFilters = ({ min, setMin, max, setMax }) => {
    return (
       <div>
-         <h3>Filtrar por preço</h3>
+         <h2 className="title2">Filtrar por preço</h2>
          <div>
-            <label htmlFor="min">Mínimo R$</label>
+            <label className="label" htmlFor="min">
+               Mínimo R$
+            </label>
             <input
+               className="input-small"
                type="number"
                name="min"
                id="min"
@@ -14,8 +17,11 @@ export const PriceFilters = ({ min, setMin, max, setMax }) => {
             />
          </div>
          <div>
-            <label htmlFor="max">Máximo R$</label>
+            <label className="label" htmlFor="max">
+               Máximo R$
+            </label>
             <input
+               className="input-small"
                type="number"
                name="max"
                id="max"
