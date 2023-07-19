@@ -1,11 +1,11 @@
-export const BookCard = () => {
+export const BookCard = ({book}) => {
     return(
         <li>
             <div>
-                <h3>Título</h3>
-                <p>Categoria</p>
+                <h3>{book.name}</h3>
+                <p>{book.category}</p>
             </div>
-            <span>Preço</span>
+            <span>{book.price}</span>
         </li>
     )
 }
