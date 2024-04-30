@@ -1,15 +1,14 @@
-import { CategoryFilters } from "./CategoryFilters"
+import { CategoryFilters } from "../Filters/CategoryFilters"
+import { SearchForm } from "../Filters/SearchForm"
 import { PriceFilters } from "./PriceFilters"
-import { SearchForm } from "./SearchForm"
-import styles from "./style.module.scss";
 
-export const Filters = ({cleanFilters, setSearch, setCategory, min, setMin, max, setMax}) => {
+export const Filters = () => {
     return(
-        <div className={styles.filterBox}> 
-            <SearchForm setSearch={setSearch} />
-            <CategoryFilters setCategory={setCategory} />
-            <PriceFilters min={min} setMin={setMin} max={max} setMax={setMax} />
-            <button className="btn" onClick={cleanFilters}>Limpar filtro</button>
+        <div>
+            <SearchForm />
+            <CategoryFilters />
+            <PriceFilters />
+            <button>Limpar filtro</button>
         </div>
     )
 }
